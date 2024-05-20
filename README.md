@@ -1,70 +1,121 @@
-# Getting Started with Create React App
+# Recipe App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React-based web application that allows users to search for recipes and view detailed information about them. It uses the Spoonacular API to fetch recipe data.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Search Recipes:** Users can search for recipes based on a query, cuisine, diet, and intolerances.
+- **View Recipe Details:** Users can view detailed information about a specific recipe, including ingredients and instructions.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React:** JavaScript library for building user interfaces.
+- **Material-UI:** React component library for a consistent and appealing UI.
+- **Axios:** Promise-based HTTP client for making API requests.
+- **React Router:** Library for routing in React applications.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How to Run the Application
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Node.js and npm (or yarn):** Make sure you have Node.js and npm (or yarn) installed on your machine.
 
-### `npm run build`
+### Local Development
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1.  **Clone the repository:**
+    
+    ```bash
+    git clone https://github.com/AhmadSameerDevelopment/recipe-app-react-atypon.git
+    cd AhmadSameerDevelopment
+    ```
+    
+2.  **Install Dependencies:**
+    
+    ```bash
+    npm install  # or yarn install
+    ```
+    
+3.  **Start the Development Server:**
+    
+    ```bash
+    npm run start-dev   # or yarn start
+    ```
+    
+4.  **Access the Application:**
+    
+    Open your browser and navigate to `http://localhost:3000`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## How to Run the Application on Heroku
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+- **Heroku Account:** Create a free Heroku account if you don't have one.
+- **Heroku CLI:** Install the Heroku CLI.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Steps to Deploy
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1.  **Create a Heroku App:**
+    
+    ```bash
+    heroku create your-app-name
+    ```
+    
+2.  **Set Buildpack:**
+    
+    ```bash
+    heroku buildpacks:set mars/create-react-app
+    ```
+    
+3.  **Set Environment Variables:**
+    
+    ```bash
+    heroku config:set REACT_APP_SPOONACULAR_API_KEY=your_api_key_here
+    ```
+    
+4.  **Deploy the Application:**
+    
+    ```bash
+    git push heroku main
+    ```
+    
+5.  **Open the Application:**
+    
+    ```bash
+    heroku open
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## API Endpoints (Spoonacular)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+*   **Search Recipes:**
+    *   `GET https://api.spoonacular.com/recipes/complexSearch`
+        *   Query Parameters: `query`, `cuisine`, `diet`, `intolerances`, `apiKey`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+*   **Recipe Information:**
+    *   `GET https://api.spoonacular.com/recipes/{id}/information`
+        *   Query Parameters: `apiKey`
 
-### Code Splitting
+## Design Decisions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+*   **Material-UI:** Used for a consistent and visually appealing design.
+*   **Axios:** Chosen for its simplicity and ease of use in making HTTP requests.
+*   **React Router:** Used for handling client-side routing.
+*   **Direct API Calls:** The frontend directly calls the Spoonacular API for fetching recipe data.
+*   **Accessibility:** Implemented basic ARIA attributes for improved accessibility.
 
-### Analyzing the Bundle Size
+## Lessons Learned
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+*   Using component libraries like Material-UI can speed up development.
+*   Managing loading and error states is crucial for a good user experience.
+*   Accessibility features should be considered from the start of development.
 
-### Making a Progressive Web App
+## Highlights
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+*   **Clean UI:** The application has a clean and user-friendly interface.
+*   **Dynamic Search:** Recipes are fetched dynamically based on user input.
+*   **Accessibility:** Efforts made to make the app more accessible.
 
-### Advanced Configuration
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License. See the `LICENSE` file for details.
